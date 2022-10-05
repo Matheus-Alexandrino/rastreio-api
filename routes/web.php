@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CorreiosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    Route::controller(CorreiosController::class)->group(
+    function () {
+        Route::get('/', 'index')->name('rastreio.index');
+        Route::get('/rastreio/{codigo}', 'consulta')->name('rastreio.consulta2');
+        Route::put('/rastreio', 'consulta')->name('rastreio.consulta');
+
+    });
 });
