@@ -13,13 +13,10 @@ use App\Http\Controllers\CorreiosController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    Route::controller(CorreiosController::class)->group(
-    function () {
+
         Route::get('/', 'index')->name('rastreio.index');
         Route::get('/rastreio/{codigo}', 'consulta')->name('rastreio.consulta2');
         Route::put('/rastreio', 'consulta')->name('rastreio.consulta');
 
-    });
-});
+
+
